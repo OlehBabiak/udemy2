@@ -112,42 +112,84 @@ let students = {
         progress: 10,
       },
     ],
+    semi: {
+      students: [
+        {
+          name: "test",
+          progress: 100,
+        },
+      ],
+    },
   },
 };
 
-function getTotalProgressByIteration(data) {
-  let total = 0;
-  let students = 0;
+// function getTotalProgressByIteration(data) {
+//   let total = 0;
+//   let students = 0;
 
-  //    course: js or html
-  for (const course of Object.values(data)) {
-    if (Array.isArray(course)) {
-      // якщо курс масив
-      students += course.length; //  к-сть студентів = кість обєктів в масиві
+//   //    course: js or html
+//   for (const course of Object.values(data)) {
+//     if (Array.isArray(course)) {
+//       // якщо курс масив
+//       students += course.length; //  к-сть студентів = кість обєктів в масиві
 
-      for (let i = 0; i < course.length; i++) {
-        total += course[i].progress; //  з кожного обєкту витягує и прогрес і плюсуємо
-      }
-    } else {
-      // якщо курс обєкт
-      // group: basic, pro
-      for (const group of Object.values(course)) {
-        //отримуєм значення ключів обєкту
-        if (Array.isArray(group)) {
-          // якщо group масив
-          students += group.length;
+//       for (let i = 0; i < course.length; i++) {
+//         total += course[i].progress; //  з кожного обєкту витягує и прогрес і плюсуємо
+//       }
+//     } else {
+//       // якщо курс обєкт
+//       // group: basic, pro
+//       for (const group of Object.values(course)) {
+//         //отримуєм значення ключів обєкту
+//         if (Array.isArray(group)) {
+//           // якщо group масив
+//           students += group.length;
 
-          for (let j = 0; j < group.length; j++) {
-            total += group[j].progress;
-          }
-        } // сюди новий else
-      }
-    }
+//           for (let j = 0; j < group.length; j++) {
+//             total += group[j].progress;
+//           }
+//         } // сюди новий else
+//       }
+//     }
+//   }
+
+//   return total / students;
+// }
+
+// console.log(getTotalProgressByIteration(students));
+
+// function getTotalProgressByRecursion(data) {
+//   if (Array.isArray(data)) {  //база рекурсії, виконується коли ми натрапляємо на масив
+//       let total = 0
+//     for (let i = 0; i < data.length; i++) {
+//       total += data[i].progress;
+//     }
+//     return [total, data.length]
+//   } else {
+//     let total = [0, 0]
+//     for (const subData of Object.values(data)) {
+//       const subDataArr = getTotalProgressByRecursion(subData)
+//       total[0] += subDataArr[0]
+//       total[1] += subDataArr[1]
+//     }
+//     return total
+//   }
+// }
+
+// const result = getTotalProgressByRecursion(students)
+
+// console.log(result[0]/result[1]);
+
+function factorial(num) {
+  if (num === 1) {
+    return num;
+  } else if (num <= 0) {
+    return 1;
+  } else if (typeof num !== "number" || !Number.isInteger(num)) {
+    return "Not a number or not integer!";
+  } else {
+    return num * factorial(num - 1);
   }
-
-  return total / students;
 }
 
-function getTotalProgressByRecursion(params) {}
-
-console.log(getTotalProgressByIteration(students));
+console.log(factorial(0));
