@@ -84,44 +84,44 @@
 
 // pow(2, 4);
 
-let students = {
-  js: [
-    {
-      name: "John",
-      progress: 100,
-    },
-    {
-      name: "Ivan",
-      progress: 60,
-    },
-  ],
-  html: {
-    basic: [
-      {
-        name: "Peter",
-        progress: 20,
-      },
-      {
-        name: "Ann",
-        progress: 18,
-      },
-    ],
-    pro: [
-      {
-        name: "Sam",
-        progress: 10,
-      },
-    ],
-    semi: {
-      students: [
-        {
-          name: "test",
-          progress: 100,
-        },
-      ],
-    },
-  },
-};
+// let students = {
+//   js: [
+//     {
+//       name: "John",
+//       progress: 100,
+//     },
+//     {
+//       name: "Ivan",
+//       progress: 60,
+//     },
+//   ],
+//   html: {
+//     basic: [
+//       {
+//         name: "Peter",
+//         progress: 20,
+//       },
+//       {
+//         name: "Ann",
+//         progress: 18,
+//       },
+//     ],
+//     pro: [
+//       {
+//         name: "Sam",
+//         progress: 10,
+//       },
+//     ],
+//     semi: {
+//       students: [
+//         {
+//           name: "test",
+//           progress: 100,
+//         },
+//       ],
+//     },
+//   },
+// };
 
 // function getTotalProgressByIteration(data) {
 //   let total = 0;
@@ -179,17 +179,17 @@ let students = {
 // const result = getTotalProgressByRecursion(students)
 
 // console.log(result[0]/result[1]);
+//
+// function factorial(num) {
+//   if (num === 1) {
+//     return num;
+//   } else if (num <= 0) {
+//     return 1;
+//   } else if (typeof num !== "number" || !Number.isInteger(num)) {
+//     return "Not a number or not integer!";
+//   } else {
+//     return num * factorial(num - 1);
+//   }
+// }
 
-function factorial(num) {
-  if (num === 1) {
-    return num;
-  } else if (num <= 0) {
-    return 1;
-  } else if (typeof num !== "number" || !Number.isInteger(num)) {
-    return "Not a number or not integer!";
-  } else {
-    return num * factorial(num - 1);
-  }
-}
-
-console.log(factorial(0));
+// console.log(factorial(0));
