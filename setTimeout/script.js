@@ -34,3 +34,20 @@ btn.addEventListener("click", myAnimation);
 //     console.log('Hello');
 //     id = setTimeout(log, 500);
 // }, 500);
+
+function marry(man, woman) {
+    woman.husband = man;
+    man.wife = woman;
+  
+    console.log({
+        father: man,
+        mother: woman
+      }); 
+  }
+  
+  let family = marry({
+    name: "John"
+  }, {
+    name: "Ann"
+  });
+
