@@ -145,77 +145,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("scroll", showMogalByScroll);
 
-  class ProductCard {
-    constructor(img, alt, title, description, price) {
-      this.img = img;
-      this.alt = alt;
-      this.title = title;
-      this.description = description;
-      this.price = price;
-    }
-
-    setData() {
-      const container = document.querySelector(".menu__field .container"); //1
-      const menuItem = createElement("div"); //2
-
-      const img = createElement("img");
-      const menuItemSubtitle = createElement("h3");
-      const menuItemDescr = createElement("div");
-      const menuItemDivider = createElement("div");
-      const menuItemPrice = createElement("div");
-      const menuItemCost = createElement("div");
-      const menuItemTotal = createElement("div");
-
-      function createElement(selector) {
-        return document.createElement(selector);
-      }
-
-      function classListAdd(element, selector) {
-        return element.classList.add(selector);
-      }
-
-      function creatCardWrapper(container, menuItem) {
-        //3
-        classListAdd(menuItem, "menu__item");
-        container.append(menuItem);
-      }
-
-      function createCardContent() {
-        // 5 кожному додаєм клас
-        classListAdd(menuItemSubtitle, "menu__item-subtitle");
-        classListAdd(menuItemDescr, "menu__item-descr");
-        classListAdd(menuItemDivider, "menu__item-divider");
-        classListAdd(menuItemPrice, "menu__item-price");
-        classListAdd(menuItemCost, "menu__item-cost");
-        classListAdd(menuItemTotal, "menu__item-total");
-      }
-
-      function setContent(im, alt, title, des, price) {
-        //6
-        img.src = im;
-        img.alt = alt;
-        menuItemSubtitle.textContent = title;
-        menuItemDescr.textContent = des;
-        menuItemCost.textContent = "Цена: ";
-        menuItemTotal.innerHTML = `<span>${price}</span> грн/день`;
-      }
-
-      creatCardWrapper(container, menuItem); //3 menu__item
-
-      menuItem.append(
-        //4
-        img,
-        menuItemSubtitle,
-        menuItemDescr,
-        menuItemDivider,
-        menuItemPrice
-      );
-      menuItemPrice.append(menuItemCost, menuItemTotal); //4
-
-      createCardContent(); //5
-      setContent(this.img, this.alt, this.title, this.description, this.price); //6
-    }
-  }
+  //set menu Items
 
   const cards = [
     {
@@ -243,6 +173,91 @@ window.addEventListener("DOMContentLoaded", () => {
       price: 430,
     },
   ];
+
+  class ProductCard {
+    constructor(img, alt, title, description, price) {
+      this.img = img;
+      this.alt = alt;
+      this.title = title;
+      this.description = description;
+      this.price = price;
+    }
+
+    setData() {
+      const container = document.querySelector(".menu__field .container");
+      const menuItem = createElement("div"); //2
+
+      const img = createElement("img");
+      const menuItemSubtitle = createElement("h3");
+      const menuItemDescr = createElement("div");
+      const menuItemDivider = createElement("div");
+      const menuItemPrice = createElement("div");
+      const menuItemCost = createElement("div");
+      const menuItemTotal = createElement("div");
+
+      const CARD_STRUCTURE = [
+        menuItemSubtitle,
+        menuItemDescr,
+        menuItemDivider,
+        menuItemPrice,
+        menuItemCost,
+        menuItemTotal,
+      ];
+
+      const CARD_STRUCTURE_VALUES = [
+        "menu__item-subtitle",
+        "menu__item-descr",
+        "menu__item-divider",
+        "menu__item-price",
+        "menu__item-cost",
+        "menu__item-total",
+      ];
+
+      function createElement(selector) {
+        return document.createElement(selector);
+      }
+
+      function classListAdd(element, selector) {
+        return element.classList.add(selector);
+      }
+
+      function creatCardWrapper(container, menuItem) {
+        //3
+        classListAdd(menuItem, "menu__item");
+        container.append(menuItem);
+      }
+
+      function createCardContent(el, className) {
+        classListAdd(el, className);
+      }
+
+      function setContent(im, alt, title, des, price) {
+        img.src = im;
+        img.alt = alt;
+        menuItemSubtitle.textContent = title;
+        menuItemDescr.textContent = des;
+        menuItemCost.textContent = "Цена: ";
+        menuItemTotal.innerHTML = `<span>${price}</span> грн/день`;
+      }
+
+      creatCardWrapper(container, menuItem);
+
+      menuItem.append(
+        img,
+        menuItemSubtitle,
+        menuItemDescr,
+        menuItemDivider,
+        menuItemPrice
+      );
+      menuItemPrice.append(menuItemCost, menuItemTotal);
+
+      for (let i = 0; i < CARD_STRUCTURE.length; i++) {
+        createCardContent(CARD_STRUCTURE[i], CARD_STRUCTURE_VALUES[i]);
+      }
+
+      setContent(this.img, this.alt, this.title, this.description, this.price);
+    }
+  }
 
   cards.forEach((el) => {
     const item = new ProductCard(
