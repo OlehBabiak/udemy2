@@ -147,6 +147,55 @@ window.addEventListener("DOMContentLoaded", () => {
 
   //set menu Items
 
+  class ProductCard {
+    constructor(
+      src,
+      alt,
+      title,
+      description,
+      price,
+      parentSelector,
+      ...classes
+    ) {
+      this.src = src;
+      this.alt = alt;
+      this.title = title;
+      this.description = description;
+      this.parent = document.querySelector(parentSelector);
+      this.price = price;
+      this.classes = classes;
+      this.transfer = 36;
+      this.changeToUAH();
+    }
+
+    changeToUAH() {
+      this.price = this.price * this.transfer;
+    }
+
+    render() {
+      const menuItem = document.createElement("div");
+      if (this.classes.length === 0) {
+        this.classes = "menu__item";
+        menuItem.classList.add("menu__item");
+      } else {
+        this.classes.forEach((className) => menuItem.classList.add(className));
+      }
+
+      menuItem.innerHTML = `
+      <img src=${this.src} alt=${this.alt} />
+      <h3 class="menu__item-subtitle">${this.title}</h3>
+      <div class="menu__item-descr">
+        ${this.description}
+      </div>
+      <div class="menu__item-divider"></div>
+      <div class="menu__item-price">
+        <div class="menu__item-cost">Цена:</div>
+        <div class="menu__item-total"><span>${this.price}</span> грн/день</div>
+      </div>`;
+      this.parent.append(menuItem);
+    }
+  }
+
   const cards = [
     {
       img: "img/tabs/vegy.jpg",
@@ -154,7 +203,7 @@ window.addEventListener("DOMContentLoaded", () => {
       subtitle: "Меню 'Фитнес'",
       descr:
         "Меню Фитнес - это новый подход к приготовлению блюд: больше свежих овощей и фруктов.родукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!",
-      price: 229,
+      price: 9,
     },
     {
       img: "img/tabs/elite.jpg",
@@ -162,7 +211,7 @@ window.addEventListener("DOMContentLoaded", () => {
       subtitle: "Меню “Премиум”",
       descr:
         "В меню “Премиум” мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в ресторан!",
-      price: 550,
+      price: 15,
     },
     {
       img: "img/tabs/post.jpg",
@@ -170,103 +219,19 @@ window.addEventListener("DOMContentLoaded", () => {
       subtitle: "Меню 'Постное'",
       descr:
         "Меню “Постное” - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков.",
-      price: 430,
+      price: 11,
     },
   ];
 
-  class ProductCard {
-    constructor(img, alt, title, description, price) {
-      this.img = img;
-      this.alt = alt;
-      this.title = title;
-      this.description = description;
-      this.price = price;
-    }
-
-    setData() {
-      const container = document.querySelector(".menu__field .container");
-      const menuItem = createElement("div"); //2
-
-      const img = createElement("img");
-      const menuItemSubtitle = createElement("h3");
-      const menuItemDescr = createElement("div");
-      const menuItemDivider = createElement("div");
-      const menuItemPrice = createElement("div");
-      const menuItemCost = createElement("div");
-      const menuItemTotal = createElement("div");
-
-      const CARD_STRUCTURE = [
-        menuItemSubtitle,
-        menuItemDescr,
-        menuItemDivider,
-        menuItemPrice,
-        menuItemCost,
-        menuItemTotal,
-      ];
-
-      const CARD_STRUCTURE_VALUES = [
-        "menu__item-subtitle",
-        "menu__item-descr",
-        "menu__item-divider",
-        "menu__item-price",
-        "menu__item-cost",
-        "menu__item-total",
-      ];
-
-      function createElement(selector) {
-        return document.createElement(selector);
-      }
-
-      function classListAdd(element, selector) {
-        return element.classList.add(selector);
-      }
-
-      function creatCardWrapper(container, menuItem) {
-        //3
-        classListAdd(menuItem, "menu__item");
-        container.append(menuItem);
-      }
-
-      function createCardContent(el, className) {
-        classListAdd(el, className);
-      }
-
-      function setContent(im, alt, title, des, price) {
-        img.src = im;
-        img.alt = alt;
-        menuItemSubtitle.textContent = title;
-        menuItemDescr.textContent = des;
-        menuItemCost.textContent = "Цена: ";
-        menuItemTotal.innerHTML = `<span>${price}</span> грн/день`;
-      }
-
-      creatCardWrapper(container, menuItem);
-
-      menuItem.append(
-        img,
-        menuItemSubtitle,
-        menuItemDescr,
-        menuItemDivider,
-        menuItemPrice
-      );
-      menuItemPrice.append(menuItemCost, menuItemTotal);
-
-      for (let i = 0; i < CARD_STRUCTURE.length; i++) {
-        createCardContent(CARD_STRUCTURE[i], CARD_STRUCTURE_VALUES[i]);
-      }
-
-      setContent(this.img, this.alt, this.title, this.description, this.price);
-    }
-  }
-
   cards.forEach((el) => {
-    const item = new ProductCard(
+    new ProductCard(
       el.img,
       el.alt,
       el.subtitle,
       el.descr,
-      el.price
-    );
-    item.setData();
+      el.price,
+      ".menu__field .container"
+      // "menu__item"
+    ).render();
   });
 });
