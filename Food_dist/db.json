@@ -22,5 +22,16 @@
       "price": 21
     }
   ],
-  "requests": []
+  "requests": [
+    {
+      "name": "Bachelor",
+      "phone": "0676733950",
+      "id": 1
+    },
+    {
+      "name": "Bachelor",
+      "phone": "0676733950",
+      "id": 2
+    }
+  ]
 }
