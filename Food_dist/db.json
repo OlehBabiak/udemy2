@@ -5,7 +5,7 @@
       "altimg": "vegy",
       "title": "Меню 'Фитнес'",
       "descr": "Меню 'Фитнес' - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!",
-      "price": 9
+      "price": 1
     },
     {
       "img": "img/tabs/post.jpg",
@@ -32,6 +32,91 @@
       "name": "Bachelor",
       "phone": "0676733950",
       "id": 2
+    },
+    {
+      "name": "Bachelor",
+      "phone": "0676733950",
+      "id": 3
+    },
+    {
+      "name": "Bachelor",
+      "phone": "0676733950",
+      "id": 4
+    },
+    {
+      "name": "Bachelor",
+      "phone": "0676733950",
+      "id": 5
+    },
+    {
+      "name": "Bachelor",
+      "phone": "0676733950",
+      "id": 6
+    },
+    {
+      "name": "Bachelor",
+      "mob": "5465465465454",
+      "id": 7
+    },
+    {
+      "name": "Bachelor",
+      "phone": "(067) 673-39-50",
+      "id": 8
+    },
+    {
+      "name": "Bachelor",
+      "phone": "(067) 673-39-50",
+      "id": 9
+    },
+    {
+      "name": "Frontend developer",
+      "phone": "+38 (095) 294-37-67",
+      "id": 10
+    },
+    {
+      "name": "Oleh",
+      "phone": "+38 (095) 294-37-67",
+      "id": 11
+    },
+    {
+      "name": "Mongoose",
+      "phone": "+38 (095) 294-37-67",
+      "id": 12
+    },
+    {
+      "name": "Frontend developer",
+      "phone": "+380676733950",
+      "id": 13
+    },
+    {
+      "name": "Bachelor",
+      "phone": "0676733950",
+      "id": 14
+    },
+    {
+      "name": "dfgdfgdfdf",
+      "phone": "454534534534",
+      "id": 15
+    },
+    {
+      "name": "Frontend developer",
+      "phone": "0676733950",
+      "id": 16
+    },
+    {
+      "name": "Bachelor",
+      "phone": "0676733950",
+      "id": 17
+    },
+    {
+      "name": "Frontend developer",
+      "phone": "+38 (095) 294-37-67",
+      "id": 18
+    },
+    {
+      "name": "dfgdfgdfdf",
+      "phone": "454534534534",
+      "id": 19
     }
   ]
 }
