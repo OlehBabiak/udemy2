@@ -203,6 +203,8 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+
+  //Forms
   getCard(menuUrl);
 
   const forms=document.querySelectorAll("form");
@@ -216,7 +218,7 @@ window.addEventListener("DOMContentLoaded", function () {
     bindPostData(item);
   });
 
-  const postdata=async (url, data) => {
+  const postData=async (url, data) => {
     const res=await fetch(url, {
       method: "POST",
       headers: {
@@ -243,7 +245,7 @@ window.addEventListener("DOMContentLoaded", function () {
       const formData=new FormData(form);
       const json=JSON.stringify(Object.fromEntries(formData.entries()));
 
-      postdata("http://localhost:3000/requests", json)
+      postData("server.php", json)
           .then((data) => {
             console.log(data);
             showThanksModal(message.success);
