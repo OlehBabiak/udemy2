@@ -2,7 +2,7 @@ function slider({
 					container,
 					slide,
 					nextArrow,
-					prewArrow,
+					prevArrow,
 					totalCounter,
 					currentCounter,
 					wrapper,
@@ -10,7 +10,7 @@ function slider({
 				}) {
 	const slides = document.querySelectorAll(slide);
 	const slider = document.querySelector(container);
-	const prevBtn = document.querySelector(prewArrow);
+	const prevBtn = document.querySelector(prevArrow);
 	const nextBtn = document.querySelector(nextArrow);
 	const curSlide = document.querySelector(currentCounter);
 	const countOfSlides = document.querySelector(totalCounter);
