@@ -16,7 +16,6 @@ function forms(formSelector, modalTimerId) {
 	function bindPostData(form) {
 		form.addEventListener("submit", (e) => {
 			e.preventDefault();
-			
 			let statusMessage = document.createElement("img"); //2.1 створюєм елемент де відображаєм статус повідомлення
 			statusMessage.src = message.loading;
 			statusMessage.style.cssText = `
